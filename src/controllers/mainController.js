@@ -17,8 +17,13 @@ const controller = {
 		})
 	},
 	search: (req, res) => {
-		// Do the magic
-	},
+		return res.render('results',{
+			products : products.filter(product => product.name.toLowerCase().includes(req.query.keywords.toLowerCase())),
+			toThousand,
+			toDiscount,
+			keywords : req.query.keywords
+		}
+		)}
 };
 
 module.exports = controller;
