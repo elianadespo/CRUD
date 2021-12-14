@@ -1,28 +1,46 @@
 // ************ Require's ************
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+const path = require('path');
+
 
 // ************ Controller Require ************
-const productsController = require('../controllers/productsController');
+const {index, create, store, detail, edit, update, destroy} = require('../controllers/productsController');
+
+// configuracion de multer 
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+      cb(null,'./public/images/products')
+    },
+    filename :(req,file,cb) => {
+cb(null,'img-'+ Date.now() + path.extname(file.originalname))
+}});
+
+const upload = multer ({storage});
+
+
 
 /*** GET ALL PRODUCTS ***/ 
-router.get('/', productsController.index); 
+router
+.get('/', index)
 
 /*** CREATE ONE PRODUCT ***/ 
-router.get('/create/', productsController.create); 
-router.post('/create', productsController.store); 
+.get('/create/', create)
+.post('/create',upload.single('image'), store)
 
 
 /*** GET ONE PRODUCT ***/ 
-router.get('/detail/:id/', productsController.detail); 
+.get('/detail/:id/', detail)
 
 /*** EDIT ONE PRODUCT ***/ 
-router.get('/edit/:id', productsController.edit); 
-router.put('/edit/:id', productsController.update); 
+.get('/edit/:id', edit)
+.put('/edit/:id', update)
 
 
 /*** DELETE ONE PRODUCT***/ 
-router.delete('/destroy/:id', productsController.destroy); 
+.delete('/destroy/:id', destroy)
 
 
 module.exports = router;

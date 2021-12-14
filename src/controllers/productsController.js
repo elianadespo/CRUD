@@ -11,7 +11,9 @@ const toDiscount = require('../utils/toDiscount');
 const controller = {
 	// Root - Show all products
 	index: (req, res) => {
+		
 		const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
+		
 		return res.render('products', {
 			products,
 			toThousand,
@@ -45,7 +47,7 @@ const controller = {
 			discount: +discount,
 			category,
 			description: description.trim(),
-			image: 'default-image.png'
+			image: req.file ? req.file.filename : 'default-image.png'
 		}
 		products.push(product)
 
@@ -69,12 +71,12 @@ const controller = {
 			discount: +discount,
 			category,
 			description: description.trim(),
-			image: 'default-image.png'
-		}
+			image : req.file ? req.file.filename : 'default-image.png'		}
 		
 		let productsModified = products.map(product => product.id === +req.params.id ? productModified : product)
 
 		fs.writeFileSync(path.join(__dirname,'..','data','productsDataBase.json'),JSON.stringify(productsModified,null,3),'utf-8');
+		
 		res.redirect('/products/detail/' + req.params.id)
 	},
 

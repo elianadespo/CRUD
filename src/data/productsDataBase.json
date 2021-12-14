@@ -142,32 +142,5 @@
       "category": "in-sale",
       "description": "Deja que la música dance cobre vida con EXTRA BASS™ Anima el ambiente con EXTRA BASS™1. Un radiador pasivo trabaja con el parlante monoaural para potenciar los tonos bajos y mejorar los graves, a pesar del tamaño compacto. ",
       "image": "img-parlante-sony.jpg"
-   },
-   {
-      "id": 17,
-      "name": "MOTS: 7",
-      "price": 15999,
-      "discount": 20,
-      "category": "in-sale",
-      "description": "Aprovecha la oferta!!",
-      "image": "default-image.png"
-   },
-   {
-      "id": 18,
-      "name": "Butter / Permission to Dance CD ALBUM",
-      "price": 5200,
-      "discount": 0,
-      "category": "visited",
-      "description": "5200 cada uno, oferta 10000 llevando un set",
-      "image": "default-image.png"
-   },
-   {
-      "id": 19,
-      "name": "Zapatillas fila",
-      "price": 999999,
-      "discount": 40,
-      "category": "in-sale",
-      "description": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAfffffffffff",
-      "image": "default-image.png"
    }
 ]

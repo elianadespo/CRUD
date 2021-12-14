@@ -8,7 +8,7 @@ const toThousand = require('../utils/toThousand')
 const toDiscount = require('../utils/toDiscount')
 
 const controller = {
-	index: (req, res) => {
+	index: (req, res) => { 
 		return res.render('index',{
 			visited : products.filter(product => product.category === 'visited'),
 			products,
